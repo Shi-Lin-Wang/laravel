@@ -50,10 +50,15 @@ class signupController extends Controller
         ]);
             //建立用戶並將其保存到資料庫
         //$user = User::create(request(['name', 'email', 'password']));
+        //$data=$request->all;
+        //$request->password= Hash::make($data['password']);
+       /* $request->user()->fill([
+            'password' => Hash::make($request->newPassword) // Hashing passwords
+         ])->save();*/
         $account = sign_up::create(request(['account', 'password', 'email','phone',]));
         //auth()->login($user);
 
-        return redirect()->to('/');
+        return redirect()->to('/login');
     }
 
     /**

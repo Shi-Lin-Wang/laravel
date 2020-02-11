@@ -1,11 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+
 
 class browserProductController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -36,13 +39,16 @@ class browserProductController extends Controller
     public function store()
     {
         //
+       // $users = DB::connection('account');
         $DBname = "wtlab108";
         $DBhost = "127.0.0.1";
         $DBuser = 'root';
         $DBpass = '';
-	$conn = mysqli_connect($DBhost, $DBuser, $DBpass) ;//連接資料庫
+
+    $conn = mysqli_connect($DBhost, $DBuser, $DBpass) ;//連接資料庫
+    //DB::connection('mysql');
 	mysqli_query($conn,"SET NAMES utf8");
-	mysqli_select_db($conn,$DBname);
+mysqli_select_db($conn,$DBname);
 	header('Content-Type: application/json;charset=utf-8');
 
 	$return_arr = array();
@@ -50,6 +56,7 @@ class browserProductController extends Controller
 
 	$sql = "SELECT `productName` ,`productPrice`,`productImage`, `productID` FROM `product` WHERE `supplierID`=".$id;
     $result = $conn->query($sql);
+   // $result = DB::select('select * from users where id = :id', ['id' => 1]);
 
 	while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
 		$row_array = $row;

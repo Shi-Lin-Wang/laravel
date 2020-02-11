@@ -1,6 +1,7 @@
 <?php
 header('Access-Control-Allow-Origin: *');
 use App\Register;
+use Illuminate\Support\Facades\DB;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,8 +13,26 @@ use App\Register;
 |
 */
 //Route::view('/register', 'register')->name('register');
+/*Route::get('/123', function()
+{
+  // 測試一：取得users資料表的全部資料
+  $users = DB::table('account')->get();
+  return $users;
+
+  // 測試二：取得users資料表，id為1的資料
+  //$user = DB::table('users')->find(1);
+  //dd($user);  // dd means: die(var_dump($user));
+  //return $user->username;
+
+  // 測試三：用where條件式來取得相關資料
+  $users = DB::table('users')->where("username", "!=", "carlos")->get();
+  //也可使用：DB::select('select * from users');
+  return $users;
+});*/
 Route::get('/register', 'RegisterController@create');
 Route::post('/register', 'RegisterController@store');
+
+
 Route::view('/', 'home')->name('home');
 //Route::get('/', function () {
   //  return view('home');
@@ -31,14 +50,14 @@ Route::post('/browserProduct1', 'browserProductController@store');
 
 Route::get('/viewProduct', 'viewProductController@create');
 Route::post('/viewProduct1', 'viewProductController@store');
-Route::post('/addcart', 'viewProductController@addcart');
-Route::get('/cart', 'viewProductController@cart');
-Route::get('/getcartDetail', 'viewProductController@getcartDetail');
-Route::get('/CartDelete', 'viewProductController@CartDelete');
-Route::get('/getOrder', 'viewProductController@getOrder');
-Route::get('/viewOrder', 'viewProductController@viewOrder');
-Route::get('/CartToOrder', 'viewProductController@CartToOrder');
-Route::get('/navSigninCheck', 'viewProductController@navSigninCheck');
+Route::post('/addcart', 'cartController@addcart');
+Route::get('/cart', 'cartController@cart');
+Route::get('/getcartDetail', 'cartController@getcartDetail');
+Route::get('/CartDelete', 'cartController@CartDelete');
+Route::get('/getOrder', 'OrderController@getOrder');
+Route::get('/viewOrder', 'OrderController@viewOrder');
+Route::get('/CartToOrder', 'cartController@CartToOrder');
+Route::get('/navSigninCheck', 'SigninCheckController@navSigninCheck');
 Route::post('/getcart', 'getCartAmountController@store');
 
 Route::get('/welcome', function () {
