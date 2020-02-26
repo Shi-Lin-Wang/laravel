@@ -52,12 +52,12 @@
 		<a href="cart?storeID=0" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-shopping-cart" style="display:inline;"></span>&nbsp Super WTLab's Shop</a>
 	</div>
 
-	<a href="viewOrder.html" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-list-alt" style="display:inline;"></span>&nbsp 查看購買紀錄</a>
+	<a href="viewOrder" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-list-alt" style="display:inline;"></span>&nbsp 查看購買紀錄</a>
 
 	<button onclick="return myAccFunc(this);" class="btn btn-link w3-block w3-white w3-left-align" value="3" style="display:inline;"><span class="glyphicon glyphicon-home" style="display:inline;"></span> &nbsp SHOP <i class='fa fa-caret-down'></i></button>
 	<div name="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium" id="demoAcc3">
-		<a href="../testChing/browserProducts/browserProduct.html?shopID=1" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-home" style="display:inline;"></span>&nbsp 我們家 & Starbox 冷飲站</a>
-		<a href="../testChing/browserProducts/browserProduct.html?shopID=0" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-home" style="display:inline;"></span>&nbsp Super WTLab's Shop</a>
+		<a href="browserProduct?shopID=1" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-home" style="display:inline;"></span>&nbsp 我們家 & Starbox 冷飲站</a>
+		<a href="browserProduct?shopID=0" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-home" style="display:inline;"></span>&nbsp Super WTLab's Shop</a>
 	</div>
 
 
@@ -79,10 +79,7 @@
     <!--購物車表格跟標題-->
     <div class="container" id="CartTable">
     </br></br>
-      <?php
-         $storeID=$_GET['storeID']; //單價
-         echo "<h1  id='storeID' hidden='hidden'>$storeID</h1>"
-      ?>
+
 
       <h1>購物車</h1>
       <table class='table table-hover' id='data_table'>
@@ -130,7 +127,7 @@
      <div id='button'>
 	 <button class="btn btn-primary" onclick="sendOrder()">結帳</button>
 	 &nbsp;&nbsp;
-	 <button class="btn btn-primary" onclick="window.location=&quot;../testChing/browserProducts/browserProduct.html?id=1&quot;">繼續購物</button>
+	 <button class="btn btn-primary" onclick="window.location=browserProduct">繼續購物</button>
      </div>
     </div>
     <!--表格本體-->

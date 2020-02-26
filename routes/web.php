@@ -44,6 +44,8 @@ Route::view('/contact', 'contact')->name('contact');
 Route::resource('/posts', 'PostController');
 Route::get('/login', 'LoginController@create');
 Route::post('/login', 'LoginController@store');
+Route::get('/logout', 'LoginController@destroy');
+
 
 Route::get('/browserProduct', 'browserProductController@create');
 Route::post('/browserProduct1', 'browserProductController@store');

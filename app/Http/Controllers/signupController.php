@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\sign_up;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class signupController extends Controller
 {
@@ -13,6 +16,10 @@ class signupController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
     public function index()
     {
         //
@@ -55,7 +62,16 @@ class signupController extends Controller
        /* $request->user()->fill([
             'password' => Hash::make($request->newPassword) // Hashing passwords
          ])->save();*/
-        $account = sign_up::create(request(['account', 'password', 'email','phone',]));
+
+             sign_up::create([
+                'account' => $request['account'],
+                 'name' => $request['name'],
+                 'phone' => $request['phone'],
+                 'email' => $request['email'],
+                 'password' => Hash::make($request['password']),
+             ]);
+
+        //$account = sign_up::create(request(['account', 'password', 'email','phone',]));
         //auth()->login($user);
 
         return redirect()->to('/login');

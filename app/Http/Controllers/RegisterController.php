@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 //use App\register;
 //use Illuminate\Http\Request;
+
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Http\Request;
 use App\User;

@@ -99,7 +99,7 @@ $(document).ready(function(){
 
 
       var button = "<button id='checkOut' class='btn btn-primary' onclick='sendOrder2()' disabled=true>結帳</button>";
-      button +="&nbsp;&nbsp;<button class='btn btn-primary' onclick='window.location=\"../testChing/browserProducts/browserProduct.html?id="+storeID+"\"'>繼續購物</button>";
+      button +="&nbsp;&nbsp;<button class='btn btn-primary' onclick='window.location=\"../browserProduct?id="+storeID+"\"'>繼續購物</button>";
       $("#cartTbody").html(cartTbody);//history.go(-2)"
       $("#button").html(button);//history.go(-2)"
     },
@@ -228,7 +228,7 @@ function logout(){
 	now.setTime(now.getTime()-1000*600);
 	document.cookie = "token=null;expires="+now.toGMTString()+";path=/wtlab108;domain=127.0.0.1";
 	//document.cookie = "token=null;expires="+now.toGMTString()+";path=/wtlab108;domain=140.127.74.168";
-	window.location = "https://127.0.0.1/wtlab108/index.html";
+    window.location = "/logout";
 }
 
 // Accordion
