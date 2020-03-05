@@ -34,7 +34,7 @@ class signupController extends Controller
     public function create()
     {
         //
-        return view('register-1');
+        return view('register');
     }
 
     /**
